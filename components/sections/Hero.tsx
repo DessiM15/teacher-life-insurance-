@@ -1,128 +1,190 @@
-"use client";
-
-import { ChevronDown } from "lucide-react";
+'use client';
+import { ChevronDown } from 'lucide-react';
 
 export default function Hero() {
+  const scrollToCoverage = () => {
+    document.getElementById('coverage')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  const scrollToForm = () => {
+    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative min-h-screen overflow-hidden">
-      {/* Video Background */}
+
+      {/* VIDEO */}
       <video
-        className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         muted
         loop
         playsInline
-        poster="/life-insurance-hero.jpg"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ backgroundColor: '#0F3F7A' }}
       >
-        <source src="/life-insurance-hero.mp4" type="video/mp4" />
+        <source src="/assets/life-insurance-hero.mp4" type="video/mp4" />
       </video>
 
-      {/* Dark Charcoal Overlay */}
+      {/* OVERLAY LAYER 1 — gradient */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(20,20,20,0.58) 40%, rgba(10,10,10,0.75) 100%)",
+            'linear-gradient(135deg, rgba(10,30,60,0.92) 0%, rgba(15,50,100,0.78) 50%, rgba(8,25,50,0.90) 100%)',
         }}
       />
 
-      {/* Content — vertically centered within the full viewport */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-20 pb-24 text-center">
-        {/* Pill Badge */}
-        <span
-          className="hero-fade-up mb-8 inline-block rounded-full border border-gold/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold"
-          style={{ animationDelay: "0.2s" }}
-        >
-          New Horizons Benefits Group
-        </span>
+      {/* OVERLAY LAYER 2 — solid darkener */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'rgba(0,0,0,0.42)' }}
+      />
 
-        {/* Headline */}
-        <h1
-          className="hero-fade-up mx-auto mb-6 max-w-4xl font-display font-extrabold leading-[1.1] text-white"
+      {/* CONTENT */}
+      <div
+        className="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-6"
+        style={{ paddingTop: '120px', paddingBottom: '80px' }}
+      >
+
+        {/* Badge */}
+        <div
+          className="inline-block text-xs font-semibold tracking-widest uppercase rounded-full"
           style={{
-            fontSize: "clamp(2.5rem, 5vw, 4rem)",
-            animationDelay: "0.35s",
+            border: '1px solid rgba(201,160,64,0.65)',
+            color: '#E8C97A',
+            padding: '6px 20px',
+            marginBottom: '32px',
           }}
         >
-          Your Family Deserves Protection. A Teacher&rsquo;s Salary Deserves a
-          Smart Plan.
+          New Horizons Benefits Group
+        </div>
+
+        {/* H1 */}
+        <h1
+          className="font-extrabold leading-tight tracking-tight max-w-4xl mx-auto"
+          style={{
+            color: '#FFFFFF',
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            lineHeight: '1.1',
+            marginBottom: '24px',
+          }}
+        >
+          Your Family Deserves Protection.{' '}
+          A Teacher&apos;s Salary Deserves a Smart Plan.
         </h1>
 
-        {/* Gold Rule */}
+        {/* Gold rule */}
         <div
-          className="hero-fade-up mx-auto my-6 h-1 w-24 rounded-full bg-gold"
-          style={{ animationDelay: "0.5s" }}
+          style={{
+            height: '3px',
+            width: '80px',
+            background: '#C9A040',
+            borderRadius: '999px',
+            margin: '0 auto 28px',
+          }}
         />
 
         {/* Subheadline */}
         <p
-          className="hero-fade-up mx-auto mb-10 max-w-2xl font-serif italic leading-relaxed text-white/85"
+          className="max-w-2xl mx-auto leading-relaxed"
           style={{
-            fontSize: "clamp(1.1rem, 2vw, 1.375rem)",
-            animationDelay: "0.65s",
+            color: 'rgba(255,255,255,0.82)',
+            fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+            fontFamily: 'var(--font-serif)',
+            fontStyle: 'italic',
+            marginBottom: '40px',
           }}
         >
           Less than half of Americans have life insurance. Most teachers assume
-          they can&rsquo;t afford it. We&rsquo;re here to prove them wrong —
-          with plans starting at less than the cost of a daily coffee.
+          they can&apos;t afford it. We&apos;re here to prove them wrong — with
+          plans starting at less than the cost of a daily coffee.
         </p>
 
         {/* CTA Buttons */}
         <div
-          className="hero-fade-up flex flex-wrap justify-center gap-4"
-          style={{ animationDelay: "0.8s" }}
+          className="flex flex-wrap justify-center"
+          style={{ gap: '16px', marginBottom: '28px' }}
         >
-          <a
-            href="#quote"
-            className="rounded-xl px-10 py-4 text-lg font-bold transition-all duration-300"
+          {/* PRIMARY — gold filled */}
+          <button
+            onClick={scrollToForm}
             style={{
-              backgroundColor: "#C9A040",
-              color: "#0F3F7A",
-              boxShadow: "0 4px 20px rgba(201,160,64,0.35)",
+              background: '#C9A040',
+              color: '#0F3F7A',
+              padding: '18px 56px',
+              fontSize: '1.125rem',
+              fontWeight: '800',
+              letterSpacing: '0.01em',
+              borderRadius: '14px',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0 6px 28px rgba(201,160,64,0.50)',
+              transition: 'background 0.2s ease',
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#A07C20";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#C9A040";
-            }}
+            onMouseEnter={e =>
+              (e.currentTarget.style.background = '#A07C20')
+            }
+            onMouseLeave={e =>
+              (e.currentTarget.style.background = '#C9A040')
+            }
           >
-            Get My Free Quote &rarr;
-          </a>
-          <a
-            href="#coverage"
-            className="rounded-xl border-2 border-white/60 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .getElementById("coverage")
-                ?.scrollIntoView({ behavior: "smooth" });
+            Get My Free Quote →
+          </button>
+
+          {/* SECONDARY — outlined */}
+          <button
+            onClick={scrollToCoverage}
+            style={{
+              background: 'transparent',
+              color: '#FFFFFF',
+              padding: '18px 36px',
+              fontSize: '1.125rem',
+              fontWeight: '600',
+              borderRadius: '14px',
+              border: '2px solid rgba(255,255,255,0.55)',
+              cursor: 'pointer',
+              transition: 'background 0.2s ease',
             }}
+            onMouseEnter={e =>
+              (e.currentTarget.style.background = 'rgba(255,255,255,0.10)')
+            }
+            onMouseLeave={e =>
+              (e.currentTarget.style.background = 'transparent')
+            }
           >
-            See Coverage Options &darr;
-          </a>
+            See Coverage Options ↓
+          </button>
         </div>
 
-        {/* Trust Strip */}
+        {/* Trust strip */}
         <div
-          className="hero-fade-up mt-6 flex flex-wrap justify-center gap-6"
-          style={{ animationDelay: "0.95s" }}
+          className="flex flex-wrap justify-center"
+          style={{ gap: '24px' }}
         >
-          {[
-            "Multi-Carrier Access",
-            "No Medical Exam Options",
-            "Free Consultation",
-          ].map((item) => (
-            <span key={item} className="text-sm text-white/70">
-              &#10003; {item}
-            </span>
-          ))}
+          {['Multi-Carrier Access', 'No Medical Exam Options', 'Free Consultation'].map(
+            item => (
+              <span
+                key={item}
+                style={{
+                  color: 'rgba(255,255,255,0.70)',
+                  fontSize: '0.875rem',
+                }}
+              >
+                ✓ {item}
+              </span>
+            )
+          )}
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-        <ChevronDown className="hero-bounce h-8 w-8 text-white/50" />
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <ChevronDown
+          size={32}
+          style={{
+            color: 'rgba(255,255,255,0.45)',
+            animation: 'bounce 1.5s infinite',
+          }}
+        />
       </div>
     </section>
   );

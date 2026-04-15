@@ -32,19 +32,14 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <a href="/" className="relative shrink-0">
-          <div
-            className={`overflow-hidden rounded-full transition-all duration-300 ${
-              scrolled ? "bg-transparent p-0" : "bg-white/90 p-1"
-            }`}
-          >
+          <div style={{ background: 'transparent' }}>
             <Image
               src="/new-horizons-logo.jpg"
               alt="New Horizons Benefits Group"
               width={160}
               height={48}
-              className={`h-10 w-auto object-contain transition-all duration-300 ${
-                scrolled ? "" : "rounded-full"
-              }`}
+              className="h-12 w-auto object-contain"
+              style={{ mixBlendMode: 'multiply' as React.CSSProperties['mixBlendMode'] }}
               priority
             />
           </div>
