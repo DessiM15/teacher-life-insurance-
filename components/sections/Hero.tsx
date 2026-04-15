@@ -12,7 +12,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        poster="/health-insurance-hero.jpg"
+        poster="/life-insurance-hero.jpg"
       >
         <source src="/life-insurance-hero.mp4" type="video/mp4" />
       </video>
@@ -22,7 +22,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(160deg, rgba(10,10,10,0.78) 0%, rgba(20,20,20,0.55) 45%, rgba(10,10,10,0.72) 100%)",
+            "linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(20,20,20,0.58) 40%, rgba(10,10,10,0.75) 100%)",
         }}
       />
 
@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
         {/* Pill Badge */}
         <span
-          className="hero-fade-up mb-6 inline-block rounded-full border border-gold/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold"
+          className="hero-fade-up mb-8 inline-block rounded-full border border-gold/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold"
           style={{ animationDelay: "0.2s" }}
         >
           New Horizons Benefits Group
@@ -38,30 +38,27 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="hero-fade-up mx-auto max-w-3xl font-display leading-[1.15] text-white"
+          className="hero-fade-up mx-auto mb-6 max-w-4xl font-display font-extrabold leading-[1.1] text-white"
           style={{
-            fontSize: "clamp(2rem, 4.5vw, 3.5rem)",
-            fontWeight: 800,
+            fontSize: "clamp(2.5rem, 5vw, 4rem)",
             animationDelay: "0.35s",
           }}
         >
-          Your Family Deserves Protection.
-          <br />
-          <span className="text-gold">A Teacher&rsquo;s Salary</span> Deserves
-          a Smart Plan.
+          Your Family Deserves Protection. A Teacher&rsquo;s Salary Deserves a
+          Smart Plan.
         </h1>
 
         {/* Gold Rule */}
         <div
-          className="hero-fade-up mx-auto mt-6 mb-5 h-1 w-20 rounded-full bg-gold"
+          className="hero-fade-up mx-auto my-6 h-1 w-24 rounded-full bg-gold"
           style={{ animationDelay: "0.5s" }}
         />
 
         {/* Subheadline */}
         <p
-          className="hero-fade-up mx-auto mb-8 max-w-xl font-serif italic leading-relaxed text-white/80"
+          className="hero-fade-up mx-auto mb-10 max-w-2xl font-serif italic text-white/85"
           style={{
-            fontSize: "clamp(1rem, 1.8vw, 1.25rem)",
+            fontSize: "clamp(1.1rem, 2vw, 1.375rem)",
             animationDelay: "0.65s",
           }}
         >
@@ -77,13 +74,13 @@ export default function Hero() {
         >
           <a
             href="#quote"
-            className="rounded-lg bg-gold px-10 py-4 text-base font-bold text-blue-dark transition-all duration-300 hover:bg-gold-dark hover:shadow-gold"
+            className="rounded-xl bg-gold px-10 py-4 text-lg font-bold text-blue-dark shadow-gold transition-colors duration-300 hover:bg-gold-dark"
           >
             Get My Free Quote &rarr;
           </a>
           <a
             href="#coverage"
-            className="rounded-lg border border-white/40 px-8 py-4 text-base font-semibold text-white transition-all duration-300 hover:border-white/70 hover:bg-white/10"
+            className="rounded-xl border-2 border-white/60 px-8 py-4 text-lg font-semibold text-white transition-colors duration-300 hover:bg-white/10"
             onClick={(e) => {
               e.preventDefault();
               document
@@ -97,7 +94,7 @@ export default function Hero() {
 
         {/* Trust Strip */}
         <div
-          className="hero-fade-up mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2"
+          className="hero-fade-up mt-6 flex flex-wrap justify-center gap-6"
           style={{ animationDelay: "0.95s" }}
         >
           {[
@@ -105,7 +102,7 @@ export default function Hero() {
             "No Medical Exam Options",
             "Free Consultation",
           ].map((item) => (
-            <span key={item} className="text-sm text-white/60">
+            <span key={item} className="text-sm text-white/70">
               &#10003; {item}
             </span>
           ))}

@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a
             href="#quote"
-            className="inline-block rounded-lg bg-gold px-6 py-2.5 text-sm font-bold text-blue-dark transition-all duration-300 hover:bg-gold-dark hover:shadow-gold"
+            className="inline-block rounded-lg bg-gold px-6 py-2.5 text-sm font-bold text-blue-dark shadow-gold transition-colors duration-300 hover:bg-gold-dark"
           >
             Get My Free Quote
           </a>
@@ -119,7 +119,7 @@ export default function Navbar() {
           <a
             href="#quote"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-center text-sm font-bold text-blue-dark transition-all hover:bg-gold-dark hover:shadow-gold"
+            className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-center text-sm font-bold text-blue-dark shadow-gold transition-colors hover:bg-gold-dark"
           >
             Get My Free Quote
           </a>
