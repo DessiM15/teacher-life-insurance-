@@ -26,8 +26,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
+      {/* Content — vertically centered within the full viewport */}
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-20 pb-24 text-center">
         {/* Pill Badge */}
         <span
           className="hero-fade-up mb-8 inline-block rounded-full border border-gold/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-gold"
@@ -56,7 +56,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p
-          className="hero-fade-up mx-auto mb-10 max-w-2xl font-serif italic text-white/85"
+          className="hero-fade-up mx-auto mb-10 max-w-2xl font-serif italic leading-relaxed text-white/85"
           style={{
             fontSize: "clamp(1.1rem, 2vw, 1.375rem)",
             animationDelay: "0.65s",
@@ -74,13 +74,24 @@ export default function Hero() {
         >
           <a
             href="#quote"
-            className="rounded-xl bg-gold px-10 py-4 text-lg font-bold text-blue-dark shadow-gold transition-colors duration-300 hover:bg-gold-dark"
+            className="rounded-xl px-10 py-4 text-lg font-bold transition-all duration-300"
+            style={{
+              backgroundColor: "#C9A040",
+              color: "#0F3F7A",
+              boxShadow: "0 4px 20px rgba(201,160,64,0.35)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#A07C20";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#C9A040";
+            }}
           >
             Get My Free Quote &rarr;
           </a>
           <a
             href="#coverage"
-            className="rounded-xl border-2 border-white/60 px-8 py-4 text-lg font-semibold text-white transition-colors duration-300 hover:bg-white/10"
+            className="rounded-xl border-2 border-white/60 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10"
             onClick={(e) => {
               e.preventDefault();
               document

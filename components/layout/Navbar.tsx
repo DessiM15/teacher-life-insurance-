@@ -32,18 +32,22 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* Logo */}
         <a href="/" className="relative shrink-0">
-          <Image
-            src="/new-horizons-logo.jpg"
-            alt="New Horizons Benefits Group"
-            width={160}
-            height={48}
-            className={`h-12 w-auto object-contain transition-all duration-300 ${
-              scrolled
-                ? "mix-blend-multiply"
-                : "mix-blend-screen brightness-150"
+          <div
+            className={`overflow-hidden rounded-full transition-all duration-300 ${
+              scrolled ? "bg-transparent p-0" : "bg-white/90 p-1"
             }`}
-            priority
-          />
+          >
+            <Image
+              src="/new-horizons-logo.jpg"
+              alt="New Horizons Benefits Group"
+              width={160}
+              height={48}
+              className={`h-10 w-auto object-contain transition-all duration-300 ${
+                scrolled ? "" : "rounded-full"
+              }`}
+              priority
+            />
+          </div>
         </a>
 
         {/* Desktop Nav Links */}
@@ -69,7 +73,18 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a
             href="#quote"
-            className="inline-block rounded-lg bg-gold px-6 py-2.5 text-sm font-bold text-blue-dark shadow-gold transition-colors duration-300 hover:bg-gold-dark"
+            className="inline-block rounded-lg px-6 py-2.5 text-sm font-bold transition-all duration-300"
+            style={{
+              backgroundColor: "#C9A040",
+              color: "#0F3F7A",
+              boxShadow: "0 2px 12px rgba(201,160,64,0.3)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#A07C20";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#C9A040";
+            }}
           >
             Get My Free Quote
           </a>
@@ -119,7 +134,11 @@ export default function Navbar() {
           <a
             href="#quote"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-center text-sm font-bold text-blue-dark shadow-gold transition-colors hover:bg-gold-dark"
+            className="mt-3 inline-block rounded-lg px-6 py-3 text-center text-sm font-bold transition-colors"
+            style={{
+              backgroundColor: "#C9A040",
+              color: "#0F3F7A",
+            }}
           >
             Get My Free Quote
           </a>

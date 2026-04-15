@@ -5,9 +5,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <div className="pt-20">
-        <Hero />
-      </div>
+      <Hero />
       <div id="coverage" />
     </>
   );
