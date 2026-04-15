@@ -1,26 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-blue: #1A5FAF;
+  --color-blue-dark: #0F3F7A;
+  --color-blue-mid: #2272C3;
+  --color-blue-light: #EBF3FC;
+  --color-gold: #C9A040;
+  --color-gold-light: #E8C97A;
+  --color-gold-dark: #A07C20;
+  --color-pearl: #FAFAF8;
+  --color-warm-light: #FDF8F0;
+  --color-light-gray: #F1F5F9;
+  --color-slate: #334155;
+  --color-muted: #64748B;
+  --color-border: #E2D9CD;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius-card: 16px;
+  --radius-button: 10px;
+  --shadow-card: 0 4px 24px rgba(15, 63, 122, 0.08);
+  --shadow-hover: 0 12px 40px rgba(15, 63, 122, 0.18);
+  --shadow-gold: 0 4px 20px rgba(201, 160, 64, 0.35);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --color-blue: #1A5FAF;
+  --color-blue-dark: #0F3F7A;
+  --color-blue-mid: #2272C3;
+  --color-blue-light: #EBF3FC;
+  --color-gold: #C9A040;
+  --color-gold-light: #E8C97A;
+  --color-gold-dark: #A07C20;
+  --color-white: #FFFFFF;
+  --color-pearl: #FAFAF8;
+  --color-warm-light: #FDF8F0;
+  --color-light-gray: #F1F5F9;
+  --color-slate: #334155;
+  --color-muted: #64748B;
+  --color-border: #E2D9CD;
+  --gradient-hero-overlay: linear-gradient(135deg, rgba(15,63,122,0.85) 0%, rgba(26,95,175,0.6) 50%, rgba(10,40,80,0.75) 100%);
+  --gradient-gold: linear-gradient(135deg, #C9A040 0%, #E8C97A 100%);
+  --gradient-warm: linear-gradient(135deg, #0F3F7A 0%, #C9A040 100%);
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius-card: 16px;
+  --radius-button: 10px;
+  --shadow-card: 0 4px 24px rgba(15, 63, 122, 0.08);
+  --shadow-hover: 0 12px 40px rgba(15, 63, 122, 0.18);
+  --shadow-gold: 0 4px 20px rgba(201, 160, 64, 0.35);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background-color: var(--color-pearl); color: var(--color-slate); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-display); color: var(--color-blue-dark); }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
