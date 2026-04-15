@@ -38,7 +38,9 @@ export default function Navbar() {
             width={160}
             height={48}
             className={`h-12 w-auto object-contain transition-all duration-300 ${
-              scrolled ? "" : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+              scrolled
+                ? "mix-blend-multiply"
+                : "mix-blend-screen brightness-150"
             }`}
             priority
           />
@@ -67,7 +69,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a
             href="#quote"
-            className="inline-block rounded-xl bg-gold px-6 py-2.5 text-sm font-bold text-blue-dark shadow-gold transition-colors duration-300 hover:bg-gold-dark"
+            className="inline-block rounded-lg bg-gold px-6 py-2.5 text-sm font-bold text-blue-dark transition-all duration-300 hover:bg-gold-dark hover:shadow-gold"
           >
             Get My Free Quote
           </a>
@@ -117,7 +119,7 @@ export default function Navbar() {
           <a
             href="#quote"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block rounded-xl bg-gold px-6 py-3 text-center text-sm font-bold text-blue-dark shadow-gold transition-colors hover:bg-gold-dark"
+            className="mt-3 inline-block rounded-lg bg-gold px-6 py-3 text-center text-sm font-bold text-blue-dark transition-all hover:bg-gold-dark hover:shadow-gold"
           >
             Get My Free Quote
           </a>
