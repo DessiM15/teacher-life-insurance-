@@ -21,7 +21,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ backgroundColor: '#0F3F7A' }}
       >
-        <source src="/assets/life-insurance-hero.mp4" type="video/mp4" />
+        <source src="/life-insurance-hero.mp4" type="video/mp4" />
       </video>
 
       {/* OVERLAY LAYER 1 — gradient */}

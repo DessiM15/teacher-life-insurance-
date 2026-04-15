@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <a
             href="#quote"
-            className="inline-block rounded-lg px-6 py-2.5 text-sm font-bold transition-all duration-300"
+            className="inline-block rounded-lg px-8 py-3 text-sm font-bold transition-all duration-300"
             style={{
               backgroundColor: "#C9A040",
               color: "#0F3F7A",
