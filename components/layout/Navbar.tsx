@@ -49,15 +49,15 @@ export default function Navbar() {
         }}
       >
         {/* Logo + Company Name */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0, textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0, textDecoration: "none" }}>
           <Image
             src="/logo-transparent.png"
             alt="New Horizons Benefits Group"
             width={400}
             height={400}
             style={{
-              height: "160px",
-              width: "160px",
+              height: "165px",
+              width: "165px",
               objectFit: "contain",
             }}
             priority
