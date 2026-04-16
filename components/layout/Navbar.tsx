@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -23,50 +24,85 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        scrolled
-          ? "bg-white shadow-[0_2px_20px_rgba(10,45,90,0.12)]"
-          : "bg-transparent"
-      }`}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        transition: "all 0.3s ease-in-out",
+        backgroundColor: scrolled ? "#FFFFFF" : "transparent",
+        boxShadow: scrolled ? "0 2px 20px rgba(10,45,90,0.12)" : "none",
+      }}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+      <div
+        style={{
+          maxWidth: "80rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          display: "flex",
+          height: "80px",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingLeft: "24px",
+          paddingRight: "24px",
+        }}
+      >
         {/* Logo + Company Name */}
-        <a href="/" className="flex items-center gap-3 shrink-0">
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0, textDecoration: "none" }}>
           <div
-            className={`transition-all duration-300 rounded-lg overflow-hidden ${
-              scrolled ? "bg-white shadow-sm p-1" : ""
-            }`}
+            style={{
+              backgroundColor: "#FFFFFF",
+              borderRadius: "10px",
+              padding: "4px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: scrolled ? "0 1px 4px rgba(0,0,0,0.1)" : "0 1px 8px rgba(0,0,0,0.15)",
+            }}
           >
             <Image
               src="/new-horizons-logo.jpg"
               alt="New Horizons Benefits Group"
-              width={64}
-              height={64}
-              className="h-12 w-auto object-contain"
-              style={{ mixBlendMode: "multiply" }}
+              width={48}
+              height={48}
+              style={{
+                height: "40px",
+                width: "40px",
+                objectFit: "contain",
+                borderRadius: "6px",
+              }}
               priority
             />
           </div>
           <span
-            className={`hidden sm:block text-sm font-bold transition-colors duration-300 ${
-              scrolled ? "text-blue-dark" : "text-white"
-            }`}
+            className="hidden sm:block"
+            style={{
+              fontSize: "0.875rem",
+              fontWeight: 700,
+              transition: "color 0.3s",
+              color: scrolled ? "#0A2D5A" : "#FFFFFF",
+            }}
           >
             New Horizons Benefits Group
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden md:flex" style={{ alignItems: "center", gap: "32px" }}>
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className={`text-sm font-semibold transition-colors duration-300 ${
-                scrolled
-                  ? "text-blue-dark hover:text-gold"
-                  : "text-white hover:text-gold-light"
-              }`}
+              style={{
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                transition: "color 0.3s",
+                color: scrolled ? "#0A2D5A" : "#FFFFFF",
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#C9A040")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = scrolled ? "#0A2D5A" : "#FFFFFF")}
             >
               {link.label}
             </a>
@@ -77,11 +113,17 @@ export default function Navbar() {
         <div className="hidden md:block">
           <a
             href="#lead-form"
-            className="inline-block rounded-lg px-6 py-3 text-sm font-bold transition-all duration-300"
             style={{
+              display: "inline-block",
               backgroundColor: "#C9A040",
               color: "#0A2D5A",
+              padding: "12px 24px",
+              fontSize: "0.875rem",
+              fontWeight: 700,
+              borderRadius: "10px",
+              textDecoration: "none",
               boxShadow: "0 2px 12px rgba(201,160,64,0.3)",
+              transition: "background-color 0.3s",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "#A07C20";
@@ -99,36 +141,46 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}
         >
           {mobileOpen ? (
-            <X
-              className={`h-7 w-7 transition-colors duration-300 ${
-                scrolled ? "text-blue-dark" : "text-white"
-              }`}
-            />
+            <X size={28} style={{ color: scrolled ? "#0A2D5A" : "#FFFFFF", transition: "color 0.3s" }} />
           ) : (
-            <Menu
-              className={`h-7 w-7 transition-colors duration-300 ${
-                scrolled ? "text-blue-dark" : "text-white"
-              }`}
-            />
+            <Menu size={28} style={{ color: scrolled ? "#0A2D5A" : "#FFFFFF", transition: "color 0.3s" }} />
           )}
         </button>
       </div>
 
       {/* Mobile Dropdown */}
       <div
-        className={`overflow-hidden bg-white shadow-lg transition-all duration-300 md:hidden ${
-          mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className="md:hidden"
+        style={{
+          overflow: "hidden",
+          backgroundColor: "#FFFFFF",
+          boxShadow: mobileOpen ? "0 4px 20px rgba(0,0,0,0.1)" : "none",
+          maxHeight: mobileOpen ? "320px" : "0",
+          opacity: mobileOpen ? 1 : 0,
+          transition: "all 0.3s ease",
+        }}
       >
-        <div className="flex flex-col gap-1 px-6 pb-6 pt-2">
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px", padding: "8px 24px 24px" }}>
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="rounded-lg px-4 py-3 text-sm font-semibold text-blue-dark transition-colors hover:bg-blue-light"
+              style={{
+                display: "block",
+                padding: "12px 16px",
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                color: "#0A2D5A",
+                textDecoration: "none",
+                borderRadius: "8px",
+                transition: "background 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#E8F0FA")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
             >
               {link.label}
             </a>
@@ -136,10 +188,17 @@ export default function Navbar() {
           <a
             href="#lead-form"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 inline-block rounded-lg px-6 py-3 text-center text-sm font-bold transition-colors"
             style={{
+              display: "block",
+              marginTop: "12px",
+              padding: "12px 24px",
+              textAlign: "center",
+              fontSize: "0.875rem",
+              fontWeight: 700,
               backgroundColor: "#C9A040",
               color: "#0A2D5A",
+              borderRadius: "10px",
+              textDecoration: "none",
             }}
           >
             Check My Life Insurance Options

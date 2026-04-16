@@ -8,7 +8,10 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section
+      className="relative min-h-screen overflow-hidden"
+      style={{ minHeight: "100vh" }}
+    >
       {/* Video Background */}
       <video
         autoPlay
@@ -16,7 +19,15 @@ export default function Hero() {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ backgroundColor: "#0A2D5A" }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          backgroundColor: "#0A2D5A",
+        }}
       >
         <source src="/life-insurance-hero.mp4" type="video/mp4" />
       </video>
@@ -25,6 +36,11 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           background:
             "linear-gradient(135deg, rgba(10,45,90,0.92) 0%, rgba(14,58,110,0.90) 50%, rgba(20,79,143,0.87) 100%)",
         }}
@@ -36,6 +52,7 @@ export default function Hero() {
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="none"
         viewBox="0 0 1440 900"
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
       >
         <path
           d="M0,300 C360,200 720,400 1440,250 L1440,900 L0,900 Z"
@@ -54,7 +71,20 @@ export default function Hero() {
       {/* Content */}
       <div
         className="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-6"
-        style={{ paddingTop: "120px", paddingBottom: "100px" }}
+        style={{
+          position: "relative",
+          zIndex: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          minHeight: "100vh",
+          paddingTop: "120px",
+          paddingBottom: "100px",
+          paddingLeft: "24px",
+          paddingRight: "24px",
+        }}
       >
         {/* Shield Icon */}
         <div
@@ -73,11 +103,16 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="hero-fade-up font-extrabold leading-tight tracking-tight max-w-4xl mx-auto"
+          className="hero-fade-up"
           style={{
             color: "#FFFFFF",
             fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
             lineHeight: "1.1",
+            fontWeight: 800,
+            letterSpacing: "-0.02em",
+            maxWidth: "56rem",
+            marginLeft: "auto",
+            marginRight: "auto",
             marginBottom: "24px",
             animationDelay: "0.2s",
           }}
@@ -101,13 +136,17 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p
-          className="hero-fade-up max-w-2xl mx-auto leading-relaxed"
+          className="hero-fade-up"
           style={{
             color: "rgba(255,255,255,0.82)",
             fontSize: "clamp(1.05rem, 2vw, 1.25rem)",
             fontFamily: "var(--font-serif)",
             fontStyle: "italic",
             marginBottom: "40px",
+            maxWidth: "42rem",
+            marginLeft: "auto",
+            marginRight: "auto",
+            lineHeight: 1.7,
             animationDelay: "0.4s",
           }}
         >
@@ -128,7 +167,7 @@ export default function Hero() {
               color: "#0A2D5A",
               padding: "18px 56px",
               fontSize: "1.125rem",
-              fontWeight: "800",
+              fontWeight: 800,
               letterSpacing: "0.01em",
               borderRadius: "14px",
               border: "none",
@@ -149,30 +188,27 @@ export default function Hero() {
 
         {/* Trust Strip */}
         <div
-          className="hero-fade-up flex flex-wrap justify-center gap-6"
-          style={{ animationDelay: "0.6s" }}
+          className="hero-fade-up"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: "24px",
+            animationDelay: "0.6s",
+          }}
         >
           {[
             "Multi-Carrier Access",
             "No Medical Exam Options",
             "Free Consultation",
-          ].map((item, i) => (
+          ].map((item) => (
             <span
               key={item}
-              className="flex items-center gap-2"
               style={{
                 color: "rgba(255,255,255,0.70)",
                 fontSize: "0.875rem",
               }}
             >
-              {i > 0 && (
-                <span
-                  className="hidden sm:inline"
-                  style={{ color: "rgba(255,255,255,0.3)", marginRight: "4px" }}
-                >
-                  •
-                </span>
-              )}
               ✓ {item}
             </span>
           ))}
@@ -180,7 +216,15 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+      <div
+        style={{
+          position: "absolute",
+          bottom: "32px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 10,
+        }}
+      >
         <ChevronDown
           size={32}
           className="hero-bounce"
@@ -189,13 +233,21 @@ export default function Hero() {
       </div>
 
       {/* Bottom Wave Transition */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 10,
+        }}
+      >
         <svg
           viewBox="0 0 1440 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
-          className="w-full h-16 md:h-20"
+          style={{ width: "100%", height: "64px", display: "block" }}
         >
           <path
             d="M0,40 C360,80 720,0 1440,40 L1440,80 L0,80 Z"
