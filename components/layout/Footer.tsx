@@ -13,28 +13,27 @@ export default function Footer() {
               <Image
                 src="/logo-transparent.png"
                 alt="New Horizons Benefits Group"
-                width={56}
-                height={56}
-                style={{ height: "56px", width: "56px", objectFit: "contain" }}
+                width={120}
+                height={120}
+                style={{ height: "80px", width: "80px", objectFit: "contain" }}
               />
               <span
-                className="text-sm font-bold"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "#FFFFFF", fontSize: "1.125rem", fontWeight: 700 }}
               >
                 New Horizons Benefits Group
               </span>
             </div>
-            <div className="flex flex-col gap-1.5 mt-3">
-              <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.85rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "12px" }}>
+              <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}>
                 Rigo Cuellar | Independent Agent
               </span>
-              <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
+              <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}>
                 202 S. Coleman Suite 200, Prosper, TX 75078
               </span>
-              <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
+              <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}>
                 (469) 831-2672
               </span>
-              <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
+              <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}>
                 robert@newhorizonsbenefits.com
               </span>
             </div>
@@ -43,8 +42,7 @@ export default function Footer() {
           {/* Center Column — Social */}
           <div className="flex flex-col items-center">
             <span
-              className="mb-6 text-xs font-semibold uppercase tracking-widest"
-              style={{ color: "rgba(201,160,64,0.8)" }}
+              style={{ color: "rgba(201,160,64,0.8)", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "24px" }}
             >
               Connect
             </span>
@@ -111,8 +109,12 @@ export default function Footer() {
           {/* Right Column — Licensing */}
           <div className="flex flex-col items-center md:items-end gap-4">
             <span
-              className="inline-block rounded-full px-5 py-2 text-sm font-semibold"
               style={{
+                display: "inline-block",
+                borderRadius: "9999px",
+                padding: "8px 20px",
+                fontSize: "0.95rem",
+                fontWeight: 600,
                 border: "1px solid #C9A040",
                 color: "#C9A040",
               }}
@@ -120,14 +122,12 @@ export default function Footer() {
               Licensed in TX · LA · OK · CA
             </span>
             <span
-              className="text-sm"
-              style={{ color: "rgba(255,255,255,0.6)" }}
+              style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}
             >
               Affiliated with Teachers Pension
             </span>
             <span
-              className="text-sm"
-              style={{ color: "rgba(255,255,255,0.5)" }}
+              style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}
             >
               Serving Texas Educators
             </span>
@@ -140,14 +140,12 @@ export default function Footer() {
           style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
         >
           <p
-            className="text-sm mb-2"
-            style={{ color: "rgba(255,255,255,0.4)" }}
+            style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.95rem", marginBottom: "8px" }}
           >
             &copy; 2026 New Horizons Benefits Group. All rights reserved.
           </p>
           <p
-            className="text-xs max-w-2xl mx-auto leading-relaxed"
-            style={{ color: "rgba(255,255,255,0.3)" }}
+            style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.85rem", maxWidth: "42rem", marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}
           >
             New Horizons Benefits Group is an independent insurance agency. We
             are not affiliated with or endorsed by TRS or any school district.
