@@ -53,11 +53,11 @@ export default function Navbar() {
           <Image
             src="/logo-transparent.png"
             alt="New Horizons Benefits Group"
-            width={128}
-            height={128}
+            width={200}
+            height={200}
             style={{
-              height: "64px",
-              width: "64px",
+              height: "100px",
+              width: "100px",
               objectFit: "contain",
             }}
             priority

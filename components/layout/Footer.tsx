@@ -13,9 +13,9 @@ export default function Footer() {
               <Image
                 src="/logo-transparent.png"
                 alt="New Horizons Benefits Group"
-                width={120}
-                height={120}
-                style={{ height: "80px", width: "80px", objectFit: "contain" }}
+                width={200}
+                height={200}
+                style={{ height: "110px", width: "110px", objectFit: "contain" }}
               />
               <span
                 style={{ color: "#FFFFFF", fontSize: "1.125rem", fontWeight: 700 }}
