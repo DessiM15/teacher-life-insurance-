@@ -50,31 +50,18 @@ export default function Navbar() {
       >
         {/* Logo + Company Name */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0, textDecoration: "none" }}>
-          <div
+          <Image
+            src="/logo-transparent.png"
+            alt="New Horizons Benefits Group"
+            width={64}
+            height={64}
             style={{
-              backgroundColor: "#FFFFFF",
-              borderRadius: "10px",
-              padding: "4px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: scrolled ? "0 1px 4px rgba(0,0,0,0.1)" : "0 1px 8px rgba(0,0,0,0.15)",
+              height: "48px",
+              width: "48px",
+              objectFit: "contain",
             }}
-          >
-            <Image
-              src="/new-horizons-logo.jpg"
-              alt="New Horizons Benefits Group"
-              width={48}
-              height={48}
-              style={{
-                height: "40px",
-                width: "40px",
-                objectFit: "contain",
-                borderRadius: "6px",
-              }}
-              priority
-            />
-          </div>
+            priority
+          />
           <span
             className="hidden sm:block"
             style={{

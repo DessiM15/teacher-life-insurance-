@@ -11,12 +11,11 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/new-horizons-logo.jpg"
+                src="/logo-transparent.png"
                 alt="New Horizons Benefits Group"
                 width={56}
                 height={56}
-                className="h-14 w-auto rounded object-contain"
-                style={{ mixBlendMode: "multiply", background: "white", padding: "2px" }}
+                style={{ height: "56px", width: "56px", objectFit: "contain" }}
               />
               <span
                 className="text-sm font-bold"
