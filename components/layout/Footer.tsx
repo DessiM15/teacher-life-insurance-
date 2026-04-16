@@ -9,21 +9,21 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Left Column — Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div style={{ marginBottom: "16px" }}>
               <Image
                 src="/logo-transparent.png"
                 alt="New Horizons Benefits Group"
                 width={400}
                 height={400}
-                style={{ height: "150px", width: "150px", objectFit: "contain" }}
+                style={{ height: "165px", width: "165px", objectFit: "contain" }}
               />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
               <span
                 style={{ color: "#FFFFFF", fontSize: "1.125rem", fontWeight: 700 }}
               >
                 New Horizons Benefits Group
               </span>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px", marginTop: "12px" }}>
               <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}>
                 Rigo Cuellar | Independent Agent
               </span>
