@@ -80,3 +80,12 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--color-blue-dark); }
 .hero-bounce {
   animation: heroBounce 1.5s ease-in-out infinite;
 }
+
+@keyframes domeFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.dome-float {
+  animation: domeFloat 3s ease-in-out infinite;
+}
