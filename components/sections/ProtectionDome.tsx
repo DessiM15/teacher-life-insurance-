@@ -143,12 +143,12 @@ export default function ProtectionDome() {
 
       {/* ── Dome Visual ── */}
       <div
-        className="reveal"
+        className="dome-container reveal"
         style={{
           position: "relative",
-          maxWidth: 780,
+          maxWidth: 960,
           margin: "0 auto",
-          paddingBottom: "55%",
+          paddingBottom: "50%",
         }}
       >
         {/* Radial backdrop glow */}
@@ -157,7 +157,7 @@ export default function ProtectionDome() {
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse 80% 90% at 50% 100%, rgba(201,160,64,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse 80% 90% at 50% 100%, rgba(20,79,143,0.15) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
@@ -171,7 +171,7 @@ export default function ProtectionDome() {
             right: "2%",
             height: "100%",
             borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
-            border: "2px solid rgba(201, 160, 64, 0.2)",
+            border: "2px solid rgba(100, 150, 220, 0.18)",
             borderBottom: "none",
             pointerEvents: "none",
           }}
@@ -187,8 +187,8 @@ export default function ProtectionDome() {
             height: "95%",
             borderRadius: "50% 50% 0 0 / 100% 100% 0 0",
             background:
-              "linear-gradient(180deg, rgba(201,160,64,0.12) 0%, rgba(201,160,64,0.04) 60%, transparent 100%)",
-            border: "2px solid rgba(201, 160, 64, 0.35)",
+              "linear-gradient(180deg, rgba(20,79,143,0.18) 0%, rgba(20,79,143,0.08) 60%, rgba(20,79,143,0.03) 100%)",
+            border: "2px solid rgba(100, 150, 220, 0.25)",
             borderBottom: "none",
             overflow: "hidden",
           }}
@@ -199,7 +199,7 @@ export default function ProtectionDome() {
               position: "absolute",
               inset: 0,
               background:
-                "radial-gradient(ellipse 60% 80% at 50% 20%, rgba(201,160,64,0.08) 0%, transparent 60%)",
+                "radial-gradient(ellipse 60% 80% at 50% 20%, rgba(100,150,220,0.06) 0%, transparent 60%)",
               pointerEvents: "none",
             }}
           />
@@ -214,16 +214,16 @@ export default function ProtectionDome() {
             right: 0,
             height: 2,
             background:
-              "linear-gradient(90deg, transparent, rgba(201,160,64,0.4), transparent)",
+              "linear-gradient(90deg, transparent, rgba(100,150,220,0.35), transparent)",
           }}
         />
 
         {/* ── Desktop Threat Pills ── */}
         {threats.map((t, i) => {
           const positions = [
-            { left: "2%", bottom: "55%", transform: "none" },
-            { left: "50%", bottom: "95%", transform: "translateX(-50%)" },
-            { right: "2%", bottom: "55%", transform: "none" },
+            { left: "-2%", bottom: "50%", transform: "none" },
+            { left: "50%", bottom: "93%", transform: "translateX(-50%)" },
+            { right: "-2%", bottom: "50%", transform: "none" },
           ];
           const pos = positions[i];
           return (
@@ -235,21 +235,21 @@ export default function ProtectionDome() {
                 ...pos,
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
+                gap: 8,
                 borderRadius: 999,
-                background: "rgba(10, 45, 90, 0.9)",
-                border: "1px solid rgba(201, 160, 64, 0.5)",
+                background: "rgba(10, 35, 70, 0.92)",
+                border: "1px solid rgba(201, 160, 64, 0.45)",
                 color: "#C9A040",
-                padding: "8px 16px",
-                fontSize: "0.75rem",
+                padding: "10px 20px",
+                fontSize: "0.8rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
-                letterSpacing: "0.08em",
+                letterSpacing: "0.1em",
                 whiteSpace: "nowrap",
                 zIndex: 5,
               }}
             >
-              <t.icon size={14} />
+              <t.icon size={16} />
               {t.label}
             </span>
           );
@@ -260,8 +260,8 @@ export default function ProtectionDome() {
           style={{
             position: "absolute",
             bottom: "8%",
-            left: "12%",
-            right: "12%",
+            left: "14%",
+            right: "14%",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
@@ -275,25 +275,26 @@ export default function ProtectionDome() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                gap: 6,
+                gap: 8,
               }}
             >
               <a.icon
                 className="dome-asset-icon dome-float"
-                size={38}
+                size={44}
+                strokeWidth={1.5}
                 style={{
-                  color: "rgba(255,255,255,0.7)",
+                  color: "rgba(255,255,255,0.75)",
                   animationDelay: `${i * 0.3}s`,
                 }}
               />
               <span
                 className="dome-asset-label"
                 style={{
-                  color: "rgba(255,255,255,0.5)",
+                  color: "rgba(255,255,255,0.55)",
                   fontSize: "0.75rem",
                   textTransform: "uppercase",
-                  letterSpacing: "0.06em",
-                  fontWeight: 600,
+                  letterSpacing: "0.08em",
+                  fontWeight: 700,
                 }}
               >
                 {a.label}
@@ -345,6 +346,10 @@ export default function ProtectionDome() {
       {/* ── Responsive Styles ── */}
       <style jsx>{`
         @media (max-width: 768px) {
+          .dome-container {
+            max-width: 420px !important;
+            padding-bottom: 55% !important;
+          }
           .mobile-benefit-pills {
             display: flex !important;
           }
