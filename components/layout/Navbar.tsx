@@ -154,7 +154,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile: Language Toggle + Hamburger */}
-        <div className="md:hidden" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <div className="flex md:hidden items-center gap-2">
           {/* Mobile EN | ES */}
           <div style={{ display: "flex", alignItems: "center", gap: "2px", fontSize: "0.75rem", fontWeight: 700 }}>
             <button
