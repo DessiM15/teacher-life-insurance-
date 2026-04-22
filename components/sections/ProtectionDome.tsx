@@ -57,7 +57,7 @@ export default function ProtectionDome() {
       ref={sectionRef}
       style={{
         background: "linear-gradient(180deg, #0A2D5A 0%, #0E3A6E 100%)",
-        padding: "100px 24px 0",
+        padding: "72px 24px 0",
         position: "relative",
         overflow: "hidden",
       }}
@@ -98,7 +98,7 @@ export default function ProtectionDome() {
             fontFamily: "var(--font-serif)",
             fontStyle: "italic",
             maxWidth: 600,
-            margin: "0 auto 48px",
+            margin: "0 auto 32px",
             lineHeight: 1.6,
           }}
         >
@@ -146,9 +146,9 @@ export default function ProtectionDome() {
         className="dome-container reveal"
         style={{
           position: "relative",
-          maxWidth: 960,
+          maxWidth: 860,
           margin: "0 auto",
-          paddingBottom: "50%",
+          paddingBottom: "44%",
         }}
       >
         {/* Radial backdrop glow */}
@@ -305,7 +305,7 @@ export default function ProtectionDome() {
       </div>
 
       {/* ── CTA Button ── */}
-      <div className="reveal" style={{ textAlign: "center", marginTop: 40, paddingBottom: 60 }}>
+      <div className="reveal" style={{ textAlign: "center", marginTop: 32, paddingBottom: 48 }}>
         <button
           onClick={scrollToForm}
           style={{
