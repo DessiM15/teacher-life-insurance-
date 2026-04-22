@@ -4,16 +4,14 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Coverage", href: "#coverage" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Reviews", href: "#testimonials" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang } = useLanguage();
+  const nt = translations.nav;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -76,9 +74,9 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex" style={{ alignItems: "center", gap: "32px" }}>
-          {navLinks.map((link) => (
+          {nt.links[lang].map((link) => (
             <a
-              key={link.label}
+              key={link.href}
               href={link.href}
               style={{
                 fontSize: "0.875rem",
@@ -95,8 +93,41 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
+        {/* Desktop: Language Toggle + CTA */}
+        <div className="hidden md:flex" style={{ alignItems: "center", gap: "16px" }}>
+          {/* EN | ES Toggle */}
+          <div style={{ display: "flex", alignItems: "center", gap: "4px", fontSize: "0.8rem", fontWeight: 700 }}>
+            <button
+              onClick={() => setLang("en")}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "4px 6px",
+                color: lang === "en" ? "#C9A040" : scrolled ? "rgba(10,45,90,0.5)" : "rgba(255,255,255,0.5)",
+                fontWeight: lang === "en" ? 800 : 600,
+                transition: "color 0.3s",
+              }}
+            >
+              EN
+            </button>
+            <span style={{ color: scrolled ? "rgba(10,45,90,0.3)" : "rgba(255,255,255,0.3)" }}>|</span>
+            <button
+              onClick={() => setLang("es")}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "4px 6px",
+                color: lang === "es" ? "#C9A040" : scrolled ? "rgba(10,45,90,0.5)" : "rgba(255,255,255,0.5)",
+                fontWeight: lang === "es" ? 800 : 600,
+                transition: "color 0.3s",
+              }}
+            >
+              ES
+            </button>
+          </div>
+
           <a
             href="#lead-form"
             style={{
@@ -118,23 +149,55 @@ export default function Navbar() {
               e.currentTarget.style.backgroundColor = "#C9A040";
             }}
           >
-            Check My Life Insurance Options
+            {nt.cta[lang]}
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}
-        >
-          {mobileOpen ? (
-            <X size={28} style={{ color: scrolled ? "#0A2D5A" : "#FFFFFF", transition: "color 0.3s" }} />
-          ) : (
-            <Menu size={28} style={{ color: scrolled ? "#0A2D5A" : "#FFFFFF", transition: "color 0.3s" }} />
-          )}
-        </button>
+        {/* Mobile: Language Toggle + Hamburger */}
+        <div className="md:hidden" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          {/* Mobile EN | ES */}
+          <div style={{ display: "flex", alignItems: "center", gap: "2px", fontSize: "0.75rem", fontWeight: 700 }}>
+            <button
+              onClick={() => setLang("en")}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "4px 4px",
+                color: lang === "en" ? "#C9A040" : scrolled ? "rgba(10,45,90,0.5)" : "rgba(255,255,255,0.5)",
+                fontWeight: lang === "en" ? 800 : 600,
+              }}
+            >
+              EN
+            </button>
+            <span style={{ color: scrolled ? "rgba(10,45,90,0.3)" : "rgba(255,255,255,0.3)" }}>|</span>
+            <button
+              onClick={() => setLang("es")}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "4px 4px",
+                color: lang === "es" ? "#C9A040" : scrolled ? "rgba(10,45,90,0.5)" : "rgba(255,255,255,0.5)",
+                fontWeight: lang === "es" ? 800 : 600,
+              }}
+            >
+              ES
+            </button>
+          </div>
+
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}
+          >
+            {mobileOpen ? (
+              <X size={28} style={{ color: scrolled ? "#0A2D5A" : "#FFFFFF", transition: "color 0.3s" }} />
+            ) : (
+              <Menu size={28} style={{ color: scrolled ? "#0A2D5A" : "#FFFFFF", transition: "color 0.3s" }} />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Dropdown */}
@@ -150,9 +213,9 @@ export default function Navbar() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", gap: "4px", padding: "8px 24px 24px" }}>
-          {navLinks.map((link) => (
+          {nt.links[lang].map((link) => (
             <a
-              key={link.label}
+              key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               style={{
@@ -187,7 +250,7 @@ export default function Navbar() {
               textDecoration: "none",
             }}
           >
-            Check My Life Insurance Options
+            {nt.cta[lang]}
           </a>
         </div>
       </div>

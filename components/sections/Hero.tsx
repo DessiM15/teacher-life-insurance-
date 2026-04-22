@@ -1,8 +1,13 @@
 "use client";
 
 import { Shield, ChevronDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
 export default function Hero() {
+  const { lang } = useLanguage();
+  const ht = translations.hero;
+
   const scrollToForm = () => {
     document.getElementById("lead-form")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -113,8 +118,7 @@ export default function Hero() {
             animationDelay: "0.2s",
           }}
         >
-          Your Family Deserves Protection.{" "}
-          A Teacher&apos;s Salary Deserves a Smart Plan.
+          {ht.headline[lang]}
         </h1>
 
         {/* Gold accent bar */}
@@ -146,9 +150,7 @@ export default function Hero() {
             animationDelay: "0.4s",
           }}
         >
-          Less than half of Americans have life insurance. Most teachers assume
-          they can&apos;t afford it. We&apos;re here to prove them wrong — with
-          plans starting at less than the cost of a daily coffee.
+          {ht.subheadline[lang]}
         </p>
 
         {/* CTA Button */}
@@ -177,7 +179,7 @@ export default function Hero() {
               (e.currentTarget.style.background = "#C9A040")
             }
           >
-            Get My Free Quote →
+            {ht.cta[lang]}
           </button>
         </div>
 
@@ -192,11 +194,7 @@ export default function Hero() {
             animationDelay: "0.6s",
           }}
         >
-          {[
-            "Multi-Carrier Access",
-            "No Medical Exam Options",
-            "Free Consultation",
-          ].map((item) => (
+          {ht.trust[lang].map((item) => (
             <span
               key={item}
               style={{

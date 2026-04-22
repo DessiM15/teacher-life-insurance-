@@ -1,21 +1,12 @@
 "use client";
 
-const stats = [
-  {
-    value: "47%",
-    label: "Of Americans Have No Life Insurance — Teachers Included",
-  },
-  {
-    value: "$0",
-    label: "Cost for Your Free Life Insurance Consultation",
-  },
-  {
-    value: "Days",
-    label: "How Fast Coverage Can Be Active — Not Weeks, Days",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
 export default function StatsBar() {
+  const { lang } = useLanguage();
+  const stats = translations.stats.items[lang];
+
   return (
     <section
       style={{

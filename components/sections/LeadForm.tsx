@@ -3,12 +3,17 @@
 import { useState, FormEvent } from "react";
 import { CheckCircle2 } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
 export default function LeadForm() {
   useScrollReveal();
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const { lang } = useLanguage();
+  const ft = translations.form;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -87,14 +92,13 @@ export default function LeadForm() {
                   className="text-2xl font-extrabold mb-3"
                   style={{ color: "#0A2D5A" }}
                 >
-                  You&apos;re All Set!
+                  {ft.successTitle[lang]}
                 </h3>
                 <p
                   className="leading-relaxed max-w-md"
                   style={{ color: "#334155", fontSize: "1.05rem" }}
                 >
-                  We&apos;ll reach out within 1 business day with your
-                  personalized life insurance options.
+                  {ft.successBody[lang]}
                 </p>
               </div>
             ) : (
@@ -105,7 +109,7 @@ export default function LeadForm() {
                     className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest"
                     style={{ color: "#C9A040" }}
                   >
-                    Free Coverage Review
+                    {ft.label[lang]}
                   </span>
                   <h2
                     className="mb-3 font-extrabold"
@@ -115,11 +119,10 @@ export default function LeadForm() {
                       lineHeight: 1.2,
                     }}
                   >
-                    Let&apos;s Find the Right Plan for You
+                    {ft.headline[lang]}
                   </h2>
                   <p style={{ color: "#64748B", fontSize: "0.95rem" }}>
-                    Answer a few questions and we&apos;ll match you with the best
-                    coverage options for your budget.
+                    {ft.subheadline[lang]}
                   </p>
                 </div>
 
@@ -129,24 +132,24 @@ export default function LeadForm() {
                     {/* First + Last Name Row */}
                     <div className="grid gap-5 md:grid-cols-2">
                       <div>
-                        <label style={labelStyle}>First Name</label>
+                        <label style={labelStyle}>{ft.firstName[lang]}</label>
                         <input
                           type="text"
                           name="firstName"
                           required
-                          placeholder="First name"
+                          placeholder={ft.firstNamePlaceholder[lang]}
                           style={inputStyle}
                           onFocus={handleFocus}
                           onBlur={handleBlur}
                         />
                       </div>
                       <div>
-                        <label style={labelStyle}>Last Name</label>
+                        <label style={labelStyle}>{ft.lastName[lang]}</label>
                         <input
                           type="text"
                           name="lastName"
                           required
-                          placeholder="Last name"
+                          placeholder={ft.lastNamePlaceholder[lang]}
                           style={inputStyle}
                           onFocus={handleFocus}
                           onBlur={handleBlur}
@@ -156,12 +159,12 @@ export default function LeadForm() {
 
                     {/* Email */}
                     <div>
-                      <label style={labelStyle}>Email</label>
+                      <label style={labelStyle}>{ft.email[lang]}</label>
                       <input
                         type="email"
                         name="email"
                         required
-                        placeholder="your@email.com"
+                        placeholder={ft.emailPlaceholder[lang]}
                         style={inputStyle}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
@@ -170,12 +173,12 @@ export default function LeadForm() {
 
                     {/* Phone */}
                     <div>
-                      <label style={labelStyle}>Phone</label>
+                      <label style={labelStyle}>{ft.phone[lang]}</label>
                       <input
                         type="tel"
                         name="phone"
                         required
-                        placeholder="(555) 123-4567"
+                        placeholder={ft.phonePlaceholder[lang]}
                         style={inputStyle}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
@@ -184,7 +187,7 @@ export default function LeadForm() {
 
                     {/* Coverage Situation */}
                     <div>
-                      <label style={labelStyle}>Coverage Situation</label>
+                      <label style={labelStyle}>{ft.coverageSituation[lang]}</label>
                       <select
                         name="coverageSituation"
                         required
@@ -199,36 +202,23 @@ export default function LeadForm() {
                         onFocus={handleFocus as unknown as React.FocusEventHandler<HTMLSelectElement>}
                         onBlur={handleBlur as unknown as React.FocusEventHandler<HTMLSelectElement>}
                       >
-                        <option value="">Select your situation...</option>
-                        <option value="no-coverage">
-                          I don&apos;t have life insurance yet
-                        </option>
-                        <option value="compare">
-                          I have a policy but want to compare
-                        </option>
-                        <option value="family">
-                          I need coverage for my family
-                        </option>
-                        <option value="retirement">
-                          I&apos;m interested in retirement planning
-                        </option>
-                        <option value="group-life">
-                          My employer offers group life — is it enough?
-                        </option>
-                        <option value="exploring">
-                          Just exploring my options
-                        </option>
+                        <option value="">{ft.coveragePlaceholder[lang]}</option>
+                        {ft.coverageOptions[lang].map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
                     {/* Zip Code */}
                     <div>
-                      <label style={labelStyle}>Zip Code</label>
+                      <label style={labelStyle}>{ft.zipCode[lang]}</label>
                       <input
                         type="text"
                         name="zipCode"
                         required
-                        placeholder="75078"
+                        placeholder={ft.zipPlaceholder[lang]}
                         maxLength={5}
                         pattern="[0-9]{5}"
                         style={inputStyle}
@@ -282,10 +272,10 @@ export default function LeadForm() {
                               className="opacity-75"
                             />
                           </svg>
-                          Checking your options...
+                          {ft.loading[lang]}
                         </span>
                       ) : (
-                        "Get My Free Coverage Review →"
+                        ft.submit[lang]
                       )}
                     </button>
                   </div>
@@ -296,7 +286,7 @@ export default function LeadForm() {
                   className="mt-6 text-center text-xs leading-relaxed"
                   style={{ color: "#94A3B8" }}
                 >
-                  Free review. No obligation. No spam.
+                  {ft.finePrint[lang]}
                   <br />
                   New Horizons Benefits Group | (469) 831-2672 |
                   robert@newhorizonsbenefits.com

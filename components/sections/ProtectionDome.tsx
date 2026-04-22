@@ -11,23 +11,16 @@ import {
   Home,
   ShieldCheck,
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
-const threats = [
-  { icon: HeartPulse, label: "Critical Illness" },
-  { icon: Flame, label: "Burnout" },
-  { icon: TrendingDown, label: "Income Loss" },
-];
-
-const assets = [
-  { icon: Wallet, label: "Salary" },
-  { icon: PiggyBank, label: "Pension" },
-  { icon: Users, label: "Family" },
-  { icon: Home, label: "Home" },
-  { icon: ShieldCheck, label: "Savings" },
-];
+const threatIcons = [HeartPulse, Flame, TrendingDown];
+const assetIcons = [Wallet, PiggyBank, Users, Home, ShieldCheck];
 
 export default function ProtectionDome() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { lang } = useLanguage();
+  const dt = translations.dome;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -76,7 +69,7 @@ export default function ProtectionDome() {
             marginBottom: 16,
           }}
         >
-          LIVING BENEFITS
+          {dt.label[lang]}
         </span>
 
         <h2
@@ -88,7 +81,7 @@ export default function ProtectionDome() {
             marginBottom: 16,
           }}
         >
-          Protection That Works While You&apos;re Still Teaching
+          {dt.headline[lang]}
         </h2>
 
         <p
@@ -102,7 +95,7 @@ export default function ProtectionDome() {
             lineHeight: 1.6,
           }}
         >
-          Life insurance that pays you benefits while you&apos;re alive — not just after.
+          {dt.subheadline[lang]}
         </p>
       </div>
 
@@ -117,9 +110,9 @@ export default function ProtectionDome() {
           marginBottom: 24,
         }}
       >
-        {threats.map((t) => (
+        {threatIcons.map((Icon, i) => (
           <span
-            key={t.label}
+            key={i}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -135,8 +128,8 @@ export default function ProtectionDome() {
               letterSpacing: "0.08em",
             }}
           >
-            <t.icon size={14} />
-            {t.label}
+            <Icon size={14} />
+            {dt.threats[lang][i]}
           </span>
         ))}
       </div>
@@ -219,7 +212,7 @@ export default function ProtectionDome() {
         />
 
         {/* ── Desktop Threat Pills ── */}
-        {threats.map((t, i) => {
+        {threatIcons.map((Icon, i) => {
           const positions = [
             { left: "-2%", bottom: "50%", transform: "none" },
             { left: "50%", bottom: "93%", transform: "translateX(-50%)" },
@@ -228,7 +221,7 @@ export default function ProtectionDome() {
           const pos = positions[i];
           return (
             <span
-              key={t.label}
+              key={i}
               className="desktop-benefit-pill"
               style={{
                 position: "absolute",
@@ -249,8 +242,8 @@ export default function ProtectionDome() {
                 zIndex: 5,
               }}
             >
-              <t.icon size={16} />
-              {t.label}
+              <Icon size={16} />
+              {dt.threats[lang][i]}
             </span>
           );
         })}
@@ -268,9 +261,9 @@ export default function ProtectionDome() {
             zIndex: 2,
           }}
         >
-          {assets.map((a, i) => (
+          {assetIcons.map((Icon, i) => (
             <div
-              key={a.label}
+              key={i}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -278,7 +271,7 @@ export default function ProtectionDome() {
                 gap: 8,
               }}
             >
-              <a.icon
+              <Icon
                 className="dome-asset-icon dome-float"
                 size={44}
                 strokeWidth={1.5}
@@ -297,7 +290,7 @@ export default function ProtectionDome() {
                   fontWeight: 700,
                 }}
               >
-                {a.label}
+                {dt.assets[lang][i]}
               </span>
             </div>
           ))}
@@ -323,7 +316,7 @@ export default function ProtectionDome() {
           onMouseEnter={(e) => (e.currentTarget.style.background = "#A07C20")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "#C9A040")}
         >
-          See What You Qualify For →
+          {dt.cta[lang]}
         </button>
       </div>
 

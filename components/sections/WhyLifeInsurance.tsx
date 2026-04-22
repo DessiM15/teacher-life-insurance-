@@ -7,24 +7,16 @@ import {
   ArrowRight,
 } from "lucide-react";
 import useScrollReveal from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
-const cards = [
-  {
-    icon: AlertCircle,
-    text: "TRS Pension stops at death. Your family gets nothing after you're gone — your pension only pays while you're alive.",
-  },
-  {
-    icon: Users,
-    text: "Group life through your district is typically 1× salary — rarely enough to cover a mortgage, childcare, and daily expenses.",
-  },
-  {
-    icon: TrendingUp,
-    text: "The earlier you lock in life insurance, the lower your premium — and that rate stays locked for life.",
-  },
-];
+const icons = [AlertCircle, Users, TrendingUp];
 
 export default function WhyLifeInsurance() {
   useScrollReveal();
+
+  const { lang } = useLanguage();
+  const t = translations.why;
 
   const scrollToForm = () => {
     document
@@ -42,7 +34,7 @@ export default function WhyLifeInsurance() {
               className="mb-4 inline-block text-xs font-semibold uppercase tracking-widest"
               style={{ color: "#C9A040" }}
             >
-              The Reality for Educators
+              {t.label[lang]}
             </span>
 
             <h2
@@ -53,7 +45,7 @@ export default function WhyLifeInsurance() {
                 lineHeight: 1.2,
               }}
             >
-              Your Pension Is Not Life Insurance. Your Family Needs Both.
+              {t.headline[lang]}
             </h2>
 
             <p
@@ -64,11 +56,7 @@ export default function WhyLifeInsurance() {
                 fontFamily: "var(--font-serif)",
               }}
             >
-              Texas teachers have one of the best pension systems in the country
-              — but a pension only pays while you&apos;re alive. If something
-              happened to you tomorrow, your family would lose your income
-              immediately. TRS does not provide life insurance benefits to your
-              dependents.
+              {t.body1[lang]}
             </p>
 
             <p
@@ -79,11 +67,7 @@ export default function WhyLifeInsurance() {
                 fontFamily: "var(--font-serif)",
               }}
             >
-              The average Texas teacher salary is around $57,000. That income
-              disappearing overnight would be devastating for most families —
-              yet most teachers either have no coverage or rely solely on a
-              small employer-provided group policy that ends the day they leave
-              their job.
+              {t.body2[lang]}
             </p>
 
             <button
@@ -96,36 +80,39 @@ export default function WhyLifeInsurance() {
                 padding: 0,
               }}
             >
-              See how affordable real coverage can be
+              {t.link[lang]}
               <ArrowRight size={18} />
             </button>
           </div>
 
           {/* Right — Stat Cards */}
           <div className="flex flex-col gap-5">
-            {cards.map((card, i) => (
-              <div
-                key={i}
-                className="reveal-right flex items-start gap-4 rounded-2xl bg-white p-5"
-                style={{
-                  boxShadow: "0 2px 20px rgba(20,79,143,0.08)",
-                  borderLeft: "4px solid #C9A040",
-                  transitionDelay: `${i * 0.15}s`,
-                }}
-              >
-                <card.icon
-                  size={24}
-                  className="mt-0.5 shrink-0"
-                  style={{ color: "#C9A040" }}
-                />
-                <p
-                  className="leading-relaxed"
-                  style={{ color: "#334155", fontSize: "0.95rem" }}
+            {t.cards[lang].map((text, i) => {
+              const Icon = icons[i];
+              return (
+                <div
+                  key={i}
+                  className="reveal-right flex items-start gap-4 rounded-2xl bg-white p-5"
+                  style={{
+                    boxShadow: "0 2px 20px rgba(20,79,143,0.08)",
+                    borderLeft: "4px solid #C9A040",
+                    transitionDelay: `${i * 0.15}s`,
+                  }}
                 >
-                  {card.text}
-                </p>
-              </div>
-            ))}
+                  <Icon
+                    size={24}
+                    className="mt-0.5 shrink-0"
+                    style={{ color: "#C9A040" }}
+                  />
+                  <p
+                    className="leading-relaxed"
+                    style={{ color: "#334155", fontSize: "0.95rem" }}
+                  >
+                    {text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

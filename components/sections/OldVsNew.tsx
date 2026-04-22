@@ -2,27 +2,13 @@
 
 import { useRef, useEffect } from "react";
 import { X as XIcon, Check } from "lucide-react";
-
-const oldFeatures = [
-  "Only pays out after death",
-  "Covers just 1–2× your salary ($58K–$116K)",
-  "No living benefits if you get sick",
-  "Coverage ends the day you leave your district",
-  "No cash value — years of premiums, nothing to show",
-  "Rates increase as you age",
-];
-
-const newFeatures = [
-  "Access benefits for critical, chronic, or terminal illness",
-  "Coverage tailored to what your family actually needs",
-  "Pays a lump sum you can use for anything",
-  "Portable — stays with you no matter where you work",
-  "Builds cash value over time",
-  "Rates locked in at your current age",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
 export default function OldVsNew() {
   const sectionRef = useRef<HTMLElement>(null);
+  const { lang } = useLanguage();
+  const ov = translations.oldVsNew;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -63,7 +49,7 @@ export default function OldVsNew() {
               marginBottom: 16,
             }}
           >
-            OLD INSURANCE VS. NEW INSURANCE
+            {ov.label[lang]}
           </span>
 
           <h2
@@ -75,7 +61,7 @@ export default function OldVsNew() {
               marginBottom: 16,
             }}
           >
-            Not All Benefits Plans Are Created Equal
+            {ov.headline[lang]}
           </h2>
 
           <p
@@ -87,7 +73,7 @@ export default function OldVsNew() {
               lineHeight: 1.6,
             }}
           >
-            See how modern living benefits compare to the coverage your district gives you.
+            {ov.subheadline[lang]}
           </p>
         </div>
 
@@ -133,7 +119,7 @@ export default function OldVsNew() {
                 marginBottom: 4,
               }}
             >
-              District Group Plan
+              {ov.oldTitle[lang]}
             </h3>
             <p
               style={{
@@ -142,13 +128,13 @@ export default function OldVsNew() {
                 marginBottom: 28,
               }}
             >
-              The default — minimal and outdated
+              {ov.oldSubtitle[lang]}
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-              {oldFeatures.map((feature) => (
+              {ov.oldFeatures[lang].map((feature, i) => (
                 <div
-                  key={feature}
+                  key={i}
                   style={{ display: "flex", alignItems: "center", gap: 14 }}
                 >
                   <div
@@ -214,7 +200,7 @@ export default function OldVsNew() {
                 borderRadius: 999,
               }}
             >
-              Recommended
+              {ov.recommended[lang]}
             </div>
 
             <h3
@@ -225,7 +211,7 @@ export default function OldVsNew() {
                 marginBottom: 4,
               }}
             >
-              Modern Living Benefits
+              {ov.newTitle[lang]}
             </h3>
             <p
               style={{
@@ -234,13 +220,13 @@ export default function OldVsNew() {
                 marginBottom: 28,
               }}
             >
-              Protection that covers you while you&apos;re alive
+              {ov.newSubtitle[lang]}
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-              {newFeatures.map((feature) => (
+              {ov.newFeatures[lang].map((feature, i) => (
                 <div
-                  key={feature}
+                  key={i}
                   style={{ display: "flex", alignItems: "center", gap: 14 }}
                 >
                   <div

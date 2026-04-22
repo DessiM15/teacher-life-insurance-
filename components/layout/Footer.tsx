@@ -1,8 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
+import translations from "@/lib/translations";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+  const ft = translations.footer;
+
   return (
     <footer style={{ backgroundColor: "#071E40", borderTop: "1px solid #C9A040" }}>
       <div className="mx-auto max-w-7xl px-5 py-10 md:px-6 md:py-16">
@@ -26,7 +31,7 @@ export default function Footer() {
                 New Horizons Benefits Group
               </span>
               <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}>
-                Rigo Cuellar | Independent Agent
+                {ft.agentTitle[lang]}
               </span>
               <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}>
                 202 S. Coleman Suite 200, Prosper, TX 75078
@@ -45,7 +50,7 @@ export default function Footer() {
             <span
               style={{ color: "rgba(201,160,64,0.8)", fontSize: "0.85rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "24px" }}
             >
-              Connect
+              {ft.connect[lang]}
             </span>
             <div className="flex gap-5">
               {/* Facebook */}
@@ -120,17 +125,17 @@ export default function Footer() {
                 color: "#C9A040",
               }}
             >
-              Licensed in TX · LA · OK · CA
+              {ft.licensed[lang]}
             </span>
             <span
               style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem" }}
             >
-              Affiliated with Teachers Pension
+              {ft.affiliated[lang]}
             </span>
             <span
               style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.95rem" }}
             >
-              Serving Texas Educators
+              {ft.serving[lang]}
             </span>
           </div>
         </div>
@@ -143,15 +148,12 @@ export default function Footer() {
           <p
             style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.95rem", marginBottom: "8px" }}
           >
-            &copy; 2026 New Horizons Benefits Group. All rights reserved.
+            {ft.copyright[lang]}
           </p>
           <p
             style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.85rem", maxWidth: "42rem", marginLeft: "auto", marginRight: "auto", lineHeight: 1.6 }}
           >
-            New Horizons Benefits Group is an independent insurance agency. We
-            are not affiliated with or endorsed by TRS or any school district.
-            Coverage and pricing vary by carrier. All quotes are estimates
-            pending underwriting approval.
+            {ft.disclaimer[lang]}
           </p>
         </div>
       </div>
