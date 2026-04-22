@@ -32,7 +32,7 @@ export default function WhoIsItFor() {
 
   return (
     <section style={{ backgroundColor: "#E8F0FA" }}>
-      <div className="mx-auto max-w-7xl px-6 py-20 text-center">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-20 text-center">
         {/* Header */}
         <span
           className="mb-4 inline-block text-xs font-semibold uppercase tracking-widest"

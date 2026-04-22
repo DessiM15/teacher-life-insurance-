@@ -70,7 +70,7 @@ export default function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-6"
+        className="relative z-10 flex flex-col items-center justify-center text-center min-h-screen px-5 pt-[80px] pb-[60px] md:pt-[120px] md:pb-[100px] md:px-6"
         style={{
           position: "relative",
           zIndex: 10,
@@ -80,10 +80,6 @@ export default function Hero() {
           justifyContent: "center",
           textAlign: "center",
           minHeight: "100vh",
-          paddingTop: "120px",
-          paddingBottom: "100px",
-          paddingLeft: "24px",
-          paddingRight: "24px",
         }}
       >
         {/* Shield Icon */}
@@ -162,11 +158,10 @@ export default function Hero() {
         >
           <button
             onClick={scrollToForm}
+            className="px-10 py-4 md:px-14 md:py-[18px] text-base md:text-lg"
             style={{
               background: "#C9A040",
               color: "#0A2D5A",
-              padding: "18px 56px",
-              fontSize: "1.125rem",
               fontWeight: 800,
               letterSpacing: "0.01em",
               borderRadius: "14px",

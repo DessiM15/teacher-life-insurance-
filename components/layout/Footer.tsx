@@ -5,20 +5,21 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: "#071E40", borderTop: "1px solid #C9A040" }}>
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-5 py-10 md:px-6 md:py-16">
         <div className="grid gap-12 md:grid-cols-3">
           {/* Left Column — Company Info */}
-          <div>
-            <div style={{ marginBottom: "16px" }}>
+          <div className="text-center md:text-left">
+            <div style={{ marginBottom: "16px" }} className="flex justify-center md:justify-start">
               <Image
                 src="/logo-transparent.png"
                 alt="New Horizons Benefits Group"
                 width={400}
                 height={400}
-                style={{ height: "165px", width: "165px", objectFit: "contain" }}
+                className="h-[80px] w-[80px] md:h-[165px] md:w-[165px]"
+                style={{ objectFit: "contain" }}
               />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <div className="flex flex-col gap-1.5 items-center md:items-start">
               <span
                 style={{ color: "#FFFFFF", fontSize: "1.125rem", fontWeight: 700 }}
               >

@@ -69,11 +69,11 @@ export default function LeadForm() {
       className="scroll-mt-20"
       style={{ backgroundColor: "#0A2D5A" }}
     >
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-20">
         <div className="mx-auto max-w-2xl">
           {/* Form Card */}
           <div
-            className="reveal rounded-2xl bg-white p-8 md:p-12"
+            className="reveal rounded-2xl bg-white p-6 md:p-12"
             style={{ boxShadow: "0 25px 50px rgba(0,0,0,0.25)" }}
           >
             {submitted ? (

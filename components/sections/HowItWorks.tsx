@@ -36,7 +36,7 @@ export default function HowItWorks() {
       className="scroll-mt-20"
       style={{ backgroundColor: "#FFFFFF" }}
     >
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span

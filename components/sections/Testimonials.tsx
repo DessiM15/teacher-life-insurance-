@@ -37,7 +37,7 @@ export default function Testimonials() {
       className="scroll-mt-20"
       style={{ backgroundColor: "#F1F5F9" }}
     >
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-20">
         {/* Section Header */}
         <div className="text-center mb-14">
           <span

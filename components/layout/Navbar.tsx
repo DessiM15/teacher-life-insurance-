@@ -41,12 +41,12 @@ export default function Navbar() {
           marginLeft: "auto",
           marginRight: "auto",
           display: "flex",
-          height: "80px",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingLeft: "24px",
-          paddingRight: "24px",
+          paddingLeft: "16px",
+          paddingRight: "16px",
         }}
+        className="h-[64px] md:h-[80px] md:px-6"
       >
         {/* Logo + Company Name */}
         <Link href="/" style={{ display: "flex", alignItems: "center", gap: "6px", flexShrink: 0, textDecoration: "none" }}>
@@ -55,9 +55,8 @@ export default function Navbar() {
             alt="New Horizons Benefits Group"
             width={400}
             height={400}
+            className="h-[56px] w-[56px] md:h-[165px] md:w-[165px]"
             style={{
-              height: "165px",
-              width: "165px",
               objectFit: "contain",
             }}
             priority

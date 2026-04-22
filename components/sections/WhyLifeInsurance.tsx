@@ -34,7 +34,7 @@ export default function WhyLifeInsurance() {
 
   return (
     <section style={{ backgroundColor: "#FFFFFF" }}>
-      <div className="mx-auto max-w-7xl px-6 py-20">
+      <div className="mx-auto max-w-7xl px-5 py-12 md:px-6 md:py-20">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           {/* Left — Text Content */}
           <div className="reveal-left">

@@ -24,36 +24,16 @@ export default function StatsBar() {
       }}
     >
       <div
-        style={{
-          maxWidth: "80rem",
-          marginLeft: "auto",
-          marginRight: "auto",
-          padding: "40px 24px",
-        }}
+        className="max-w-7xl mx-auto px-5 py-8 md:px-6 md:py-10"
       >
         <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "24px",
-          }}
+          className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6"
         >
           {stats.map((stat, i) => (
             <div
               key={stat.value}
-              style={{
-                flex: "1 1 200px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "8px",
-                padding: "16px 32px",
-                textAlign: "center",
-                position: "relative",
-              }}
+              className="flex flex-col items-center gap-1 md:gap-2 px-4 py-2 md:px-8 md:py-4 text-center relative md:flex-1"
+              style={{ flexBasis: "200px" }}
             >
               {/* Vertical Divider */}
               {i > 0 && (
@@ -71,11 +51,11 @@ export default function StatsBar() {
               )}
 
               <span
+                className="text-2xl md:text-4xl"
                 style={{
                   color: "#0A2D5A",
                   fontFamily: "var(--font-mono)",
                   fontWeight: 500,
-                  fontSize: "2.25rem",
                   lineHeight: 1,
                 }}
               >
